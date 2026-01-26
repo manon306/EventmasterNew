@@ -70,6 +70,26 @@ namespace Eventmaster.DAL.Repo.Implementation
                 return (false, "No pending events found.", new List<Event>());
             return (true, "Pending events retrieved successfully.", pendingEvents);
         }
+        // Dashboard stats
+        public async Task<int> GetTotalUsersAsync()
+        {
+            return await _db.Users.CountAsync();
+        }
+
+        public async Task<int> GetTotalEventsAsync()
+        {
+            return await _db.Events.CountAsync();
+        }
+
+        public async Task<int> GetPendingEventsAsync()
+        {
+            return await _db.Events.Where(e => e.Status==status.Pending).CountAsync();
+        }
+
+        public async Task<int> GetTotalParticipantsAsync()
+        {
+            return await _db.Registrations.CountAsync();
+        }
     }
 
 }

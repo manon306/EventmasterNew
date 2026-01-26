@@ -1,4 +1,6 @@
-﻿namespace Eventmaster.BLL.Services.Abstraction
+﻿using Eventmaster.BLL.ModelVM.Admin;
+
+namespace Eventmaster.BLL.Services.Abstraction
 {
     public interface IAdminService
     {
@@ -9,5 +11,6 @@
         Task<(bool success, string message, List<Event> pendingEvents)> GetPendingEventsAsync();
         Task<(bool success, string message)> AcceptEventAsync(int eventId);
         Task<(bool success, string message)> RejectEventAsync(int eventId);
+        Task<DashboardStatsVm> GetDashboardStatsAsync();
     }
 }

@@ -81,5 +81,11 @@ namespace Eventmaster.Controllers
                 return BadRequest(result.message);
             return Ok(result.message);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetDashboardStats()
+        {
+            var stats = await _adminService.GetDashboardStatsAsync();
+            return Ok(stats);
+        }
     }
 }

@@ -8,5 +8,11 @@
         (bool, string) AcceptEvent(int eventId);
         (bool, string) RejectEvent(int eventId);
         (bool, string, List<Event>) GetPendingEvents();
+
+        // Dashboard stats
+        Task<int> GetTotalUsersAsync();
+        Task<int> GetTotalEventsAsync();
+        Task<int> GetPendingEventsAsync();
+        Task<int> GetTotalParticipantsAsync();
     }
 }

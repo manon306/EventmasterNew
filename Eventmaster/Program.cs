@@ -30,6 +30,10 @@ namespace WebApi.net
             builder.Services.AddScoped<IAttachmentServices, AttachmentServices>();
             builder.Services.AddScoped<IAdminService, AdminService>();
             builder.Services.AddScoped<IAdminRepo, AdminRepo>();
+            builder.Services.AddScoped<IUserRepo, UserRepo>();
+            builder.Services.AddScoped<IUserServices, UserServices>();
+            builder.Services.AddScoped<IAdminRepo, AdminRepo>();
+            builder.Services.AddScoped<IAdminService, AdminService>();
             builder.Services.AddAutoMapper(typeof(DomainProfile));
 
             // Add signalR services

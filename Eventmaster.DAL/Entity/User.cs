@@ -16,12 +16,15 @@
         public User() 
         {
         }
-        public User(string? name, string? bio,string? imagePath)
+        public User(string name, string bio, status? status, bool isOrganizer, bool isApproved, string? imagePath)
         {
             Name = name;
             Bio = bio;
-            CreatedOn = DateTime.Now;
+            this.status = status;
+            IsOrganizer = isOrganizer;
+            IsApproved = isApproved;
             ImagePath = imagePath;
         }
+
     }
 }

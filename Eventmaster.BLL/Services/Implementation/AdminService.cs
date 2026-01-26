@@ -1,4 +1,5 @@
-﻿namespace Eventmaster.BLL.Services.Implementation
+﻿using Eventmaster.BLL.ModelVM.Admin;
+namespace Eventmaster.BLL.Services.Implementation
 {
     public class AdminService : IAdminService
     {
@@ -56,5 +57,16 @@
             var (success, message) = _adminRepo.RejectEvent(eventId);
             return (success, message);
         }
+        public async Task<DashboardStatsVm> GetDashboardStatsAsync()
+        {
+            return new DashboardStatsVm
+            {
+                TotalUsers = await _adminRepo.GetTotalUsersAsync(),
+                TotalEvents = await _adminRepo.GetTotalEventsAsync(),
+                PendingEvents = await _adminRepo.GetPendingEventsAsync(),
+                TotalParticipants = await _adminRepo.GetTotalParticipantsAsync()
+            };
+        }
+
     }
 }
