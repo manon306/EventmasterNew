@@ -192,3 +192,16 @@ Token signature
 Expiration date
 User role
 Access is granted or denied accordingly.
+
+---
+Add Role Admin to user
+
+INSERT INTO AspNetUserRoles (UserId, RoleId)
+VALUES (
+    'USER_ID_HERE',
+    'ADMIN_ROLE_ID_HERE'
+);
+ ----
+ Error Code	الاسم التقني	المعنى	السبب في المشروع
+403	Forbidden	المستخدم غير مصرح له بالوصول	المستخدم ليس Admin أو Token لا يحتوي Role
+
